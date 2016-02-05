@@ -1,6 +1,6 @@
 {
   "name": "diva",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Lets you know when elements are in view.",
   "main": "diva.js",
   "scripts": {
