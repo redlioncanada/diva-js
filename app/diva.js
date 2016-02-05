@@ -56,7 +56,8 @@ var diva = (function() {
 	    return {top:curtop, left:curleft};
 	}
 
-	function addEvent(element, count, callback) {
+	function addEvent(selector, count, callback) {
+		var element = selector;
 		if (typeof element === 'string') {
 			if (element.indexOf('#') > -1 || element.indexOf('.') == -1) {
 				element = element.replace(/\.|#/g, '');
@@ -65,9 +66,10 @@ var diva = (function() {
 				element = element.replace(/\.|#/g, '');
 				element = document.getElementsByClassName(element)[0];
 			}
-		}
+		} 
 		if (!element || element == null || typeof callback !== 'function') return;
 		evts.push({
+			selector: typeof selector === 'string' ? selector : element,
 			element: element,
 			count: 0,
 			total: count,
@@ -80,6 +82,12 @@ var diva = (function() {
 	function removeEvent(at) {
 		if (typeof at === 'number') {
 			evts.splice(index, 1);
+		else if (typeof at === 'string') {
+			for (var i in evts) {
+				if (evts[i].selector === at) {
+					evts.splice(i, 1);
+				}
+			}
 		} else if (typeof at === 'object') {
 			for (var i in evts) {
 				if (evts[i].element === at) {
@@ -91,14 +99,14 @@ var diva = (function() {
 
 	return {
 		events: evts,
-		once: function(element, callback) {
-			addEvent(element, 1, callback);
+		once: function(selector, callback) {
+			addEvent(selector, 1, callback);
 		},
-		always: function(element, callback) {
-			addEvent(element, -1, callback);
+		always: function(selector, callback) {
+			addEvent(selector, -1, callback);
 		},
-		sometimes: function(element, num, callback) {
-			addEvent(element, num, callback);
+		sometimes: function(selector, num, callback) {
+			addEvent(selector, num, callback);
 		},
 		destroy: function(element) {
 			removeEvent(element);
