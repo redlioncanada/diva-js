@@ -28,8 +28,7 @@ var diva = (function() {
 		var elementCoords = getAbsolutePosition(element);
 		var windowHeight = window.screen.height;
 		var windowWidth = window.screen.width;
-		return elementCoords.top >= window.scrollY && elementCoords.top <= window.scrollY + windowHeight
-			&& elementCoords.left >= window.scrollX && elementCoords.left <= window.scrollX + windowWidth;
+		return elementCoords.top >= window.scrollY && elementCoords.top <= window.scrollY + windowHeight && elementCoords.left >= window.scrollX && elementCoords.left <= window.scrollX + windowWidth;
 	}
 
 	function getAbsolutePosition(el) {
@@ -67,7 +66,7 @@ var diva = (function() {
 				element = document.getElementsByClassName(element)[0];
 			}
 		} 
-		if (!element || element == null || typeof callback !== 'function') return;
+		if (!element || element === null || typeof callback !== 'function') return;
 		evts.push({
 			selector: typeof selector === 'string' ? selector : element,
 			element: element,
@@ -82,16 +81,16 @@ var diva = (function() {
 	function removeEvent(at) {
 		if (typeof at === 'number') {
 			evts.splice(index, 1);
-		else if (typeof at === 'string') {
+		} else if (typeof at === 'string') {
 			for (var i in evts) {
 				if (evts[i].selector === at) {
 					evts.splice(i, 1);
 				}
 			}
 		} else if (typeof at === 'object') {
-			for (var i in evts) {
-				if (evts[i].element === at) {
-					evts.splice(i, 1);
+			for (var j in evts) {
+				if (evts[j].element === at) {
+					evts.splice(j, 1);
 				}
 			}
 		}
@@ -109,7 +108,7 @@ var diva = (function() {
 			addEvent(selector, num, callback);
 		},
 		destroy: function(element) {
-			removeEvent(element);
+			if (typeof element === 'string' || typeof element === 'object') removeEvent(element);
 		}
-	}
+	};
 })();
