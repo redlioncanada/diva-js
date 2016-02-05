@@ -100,7 +100,7 @@ var diva = (function() {
 		sometimes: function(element, num, callback) {
 			addEvent(element, num, callback);
 		},
-		destroy: function(element, callback) {
+		destroy: function(element) {
 			removeEvent(element);
 		}
 	}
