@@ -11,7 +11,17 @@ gulp.task('transpile', function() {
 		.pipe(uglify({mangle:false}))
 		.pipe(rename({'suffix':'.min'}))
 		.pipe(gulp.dest('build'));
-})
+});
+
+gulp.task('release', function() {
+	gulp.src('app/*.js')
+		.pipe(jshint())
+		.pipe(jshint.reporter('default'))
+		.pipe(gulp.dest('release'))
+		.pipe(uglify({mangle:false}))
+		.pipe(rename({'suffix':'.min'}))
+		.pipe(gulp.dest('release'));
+});
 
 gulp.task('default', ['transpile'], function() {
 	gulp.watch('app/*', ['transpile']);
