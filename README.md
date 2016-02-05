@@ -32,7 +32,7 @@ After `count` times `selector` has scrolled into view, `destroy` is called
 &nbsp;&nbsp;callback, function  
   
 ###destroy(element)  
-Removes an element from the event list  
+Removes `element` from the event list  
   
 &nbsp;&nbsp;element, string or object, If string is supplied, looks for a selector. If object is supplied, looks for an element
   
