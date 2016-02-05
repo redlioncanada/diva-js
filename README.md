@@ -13,19 +13,27 @@ Let's you know when elements have scrolled into view in 3kb.
   
 ##API  
 ###once(selector, callback)  
+Calls `callback` when `selector` has scrolled into view once, then calls `destroy`  
+  
 &nbsp;&nbsp;selector, string or object, accepts a class or id  
 &nbsp;&nbsp;callback, function  
   
 ###always(selector, callback)  
+Calls `callback` when `selector` has scrolled into view  
+  
 &nbsp;&nbsp;selector, string or object, accepts a class or id  
 &nbsp;&nbsp;callback, function  
   
 ###sometimes(selector, count, callback)  
+After `count` times `selector` has scrolled into view, `destroy` is called  
+  
 &nbsp;&nbsp;selector, string or object, accepts a class or id  
-&nbsp;&nbsp;count, number, after `count` times `selector` has scrolled into view, `destroy` is called  
+&nbsp;&nbsp;count, number
 &nbsp;&nbsp;callback, function  
   
 ###destroy(element)  
+Removes an element from the event list  
+  
 &nbsp;&nbsp;element, string or object, If string is supplied, looks for a selector. If object is supplied, looks for an element
   
 ##Licence  
