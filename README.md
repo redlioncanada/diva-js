@@ -1,4 +1,4 @@
-# diva
+# diva.js
 Let's you know when elements have scrolled into view in 3kb.
 
 ##Example  
@@ -28,7 +28,7 @@ Calls `callback` when `selector` has scrolled into view
 After `count` times `selector` has scrolled into view, `destroy` is called  
   
 &nbsp;&nbsp;selector, string or object, accepts a class or id  
-&nbsp;&nbsp;count, number
+&nbsp;&nbsp;count, number  
 &nbsp;&nbsp;callback, function  
   
 ###destroy(element)  
