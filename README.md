@@ -5,7 +5,7 @@ Let's you know when elements have scrolled into view in 3kb.
 ```
 <script src="diva.min.js"></script>
 <script>
-  diva.always('.test', {offset: '10%'} function() {
+  diva.always('.test', {offset: '10%'}, function() {
     console.log('test is in view!');
   });
 </script>
@@ -34,7 +34,7 @@ After `count` times `selector` has scrolled into view, `destroy` is called
 &nbsp;&nbsp;selector, string or object, accepts a class or id  
 &nbsp;&nbsp;opts, object  
 &nbsp;&nbsp;&nbsp;&nbsp;count, integer  
-&nbsp;&nbsp;&nbsp;&nbsp;offset, string, Adjusts the screen boundary to the given offset
+&nbsp;&nbsp;&nbsp;&nbsp;offset, string, Adjusts the screen boundary to the given offset  
 &nbsp;&nbsp;callback, function  
   
 ###destroy(element)  
