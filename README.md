@@ -5,30 +5,36 @@ Let's you know when elements have scrolled into view in 3kb.
 ```
 <script src="diva.min.js"></script>
 <script>
-  diva.always('.test', function() {
+  diva.always('.test', {offset: '10%'} function() {
     console.log('test is in view!');
   });
 </script>
 ```  
   
 ##API  
-###once(selector, callback)  
+###once(selector, opts, callback)  
 Calls `callback` when `selector` has scrolled into view once, then calls `destroy`  
   
 &nbsp;&nbsp;selector, string or object, accepts a class or id  
+&nbsp;&nbsp;opts, object  
+&nbsp;&nbsp;&nbsp;&nbsp;offset, string, Adjusts the screen boundary to the given offset
 &nbsp;&nbsp;callback, function  
   
-###always(selector, callback)  
+###always(selector, opts, callback)  
 Calls `callback` when `selector` has scrolled into view  
   
 &nbsp;&nbsp;selector, string or object, accepts a class or id  
+&nbsp;&nbsp;opts, object  
+&nbsp;&nbsp;&nbsp;&nbsp;offset, string, Adjusts the screen boundary to the given offset
 &nbsp;&nbsp;callback, function  
   
-###sometimes(selector, count, callback)  
+###sometimes(selector, opts, callback)  
 After `count` times `selector` has scrolled into view, `destroy` is called  
   
 &nbsp;&nbsp;selector, string or object, accepts a class or id  
-&nbsp;&nbsp;count, number  
+&nbsp;&nbsp;opts, object  
+&nbsp;&nbsp;&nbsp;&nbsp;count, integer  
+&nbsp;&nbsp;&nbsp;&nbsp;offset, string, Adjusts the screen boundary to the given offset
 &nbsp;&nbsp;callback, function  
   
 ###destroy(element)  
