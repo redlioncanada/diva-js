@@ -9,7 +9,7 @@ var diva = (function() {
 			if ((evt.total == -1 || evt.count < evt.total)) {
 				if (elementIsInView(evt.element)) {
 					if (!evt.triggered) {
-						evt.callback.call(self);
+						evt.callback.call(self,evt);
 						evt.triggered = true;
 						evt.count++;
 					}
