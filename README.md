@@ -17,7 +17,7 @@ Calls `callback` when `selector` has scrolled into view once, then calls `destro
   
 &nbsp;&nbsp;selector, string or object, accepts a class or id  
 &nbsp;&nbsp;opts, object  
-&nbsp;&nbsp;&nbsp;&nbsp;offset, string, Adjusts the screen boundary to the given offset
+&nbsp;&nbsp;&nbsp;&nbsp;offset, string, Adjusts the screen boundary to the given offset  
 &nbsp;&nbsp;callback, function  
   
 ###always(selector, opts, callback)  
@@ -25,7 +25,7 @@ Calls `callback` when `selector` has scrolled into view
   
 &nbsp;&nbsp;selector, string or object, accepts a class or id  
 &nbsp;&nbsp;opts, object  
-&nbsp;&nbsp;&nbsp;&nbsp;offset, string, Adjusts the screen boundary to the given offset
+&nbsp;&nbsp;&nbsp;&nbsp;offset, string, Adjusts the screen boundary to the given offset  
 &nbsp;&nbsp;callback, function  
   
 ###sometimes(selector, opts, callback)  
