@@ -1,0 +1,67 @@
+<html>
+<head></head>
+<style>
+	html,body {
+		margin: 0;
+		padding: 0;
+		width: 200%;
+		height: 300%;
+		font-family: 'Helvetica', sans-serif;
+	}
+	.test {
+		height: 33%;
+		width: 50%;
+		float: left;
+		display: table;
+	}
+	.test div {
+		display: table-cell;
+		vertical-align: middle;
+		text-align: center;
+		font-size: 20em;
+	}
+	.test:nth-child(even) {
+		float: right;
+	}
+	.test00, .test11 {
+		background-color:rgb(0,0,0);
+		color: white;
+	}
+	.test01, .test02 {
+		background-color:rgb(241,75,84);
+	}
+	.test10, .test12 {
+		background-color:rgb(255,255,255);
+	}
+</style>
+<body>
+<div class="test00 test"><div>0,0</div></div>
+<div class="test01 test"><div>0,1</div></div>
+<div class="test10 test"><div>1,0</div></div>
+<div class="test11 test"><div>1,1</div></div>
+<div class="test02 test"><div>0,2</div></div>
+<div class="test12 test"><div>1,2</div></div>
+
+<script src="./release/diva.js"></script>
+<script type="text/javascript">
+	diva.always('.test00', function() {
+		console.log('.test00 scrolled into view!');
+	})
+	diva.always('.test01', function() {
+		console.log('.test01 scrolled into view!');
+	})
+	diva.always('.test10', function() {
+		console.log('.test10 scrolled into view!');
+	})
+	diva.always('.test11', function() {
+		console.log('.test11 scrolled into view!');
+	})
+	diva.always('.test02', function() {
+		console.log('.test02 scrolled into view!');
+	})
+	diva.always('.test12', function() {
+		console.log('.test12 scrolled into view!');
+	})
+</script>
+</body>
+</html>

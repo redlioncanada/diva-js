@@ -25,13 +25,24 @@ var diva = (function() {
 	}
 
 	function elementIsInView(element) {
-		var elementCoords = getAbsolutePosition(element);
-		var windowHeight = window.screen.height;
-		var windowWidth = window.screen.width;
-		return elementCoords.top >= window.scrollY && elementCoords.top <= window.scrollY + windowHeight && elementCoords.left >= window.scrollX && elementCoords.left <= window.scrollX + windowWidth;
+		var el = getElementPosition(element);
+		el.width = element.offsetWidth;
+		el.height = element.offsetHeight;
+
+		var screenUpperBound = window.scrollY;
+		var screenLowerBound = window.scrollY + Math.min(window.screen.height, window.innerHeight, window.outerHeight);
+		var elementUpperBound = el.top;
+		var elementLowerBound = el.top + el.height;
+		var screenLeftBound = window.scrollX;
+		var screenRightBound = window.scrollX + Math.min(window.screen.width, window.innerWidth, window.innerHeight);
+		var elementLeftBound = el.left;
+		var elementRightBound = el.left + el.width;
+
+		return ((elementUpperBound <= screenUpperBound && elementUpperBound < screenLowerBound && elementLowerBound > screenLowerBound && elementLowerBound > screenUpperBound) || (elementUpperBound >= screenUpperBound && elementUpperBound < screenLowerBound && elementLowerBound > screenLowerBound) || (elementLowerBound >= screenUpperBound && elementLowerBound < screenLowerBound && elementUpperBound < screenUpperBound)) && 
+				((elementLeftBound <= screenLeftBound && elementLeftBound < screenRightBound && elementRightBound > screenRightBound && elementRightBound > screenLeftBound) || (elementLeftBound >= screenLeftBound && elementLeftBound < screenRightBound && elementRightBound > screenRightBound) || (elementRightBound >= screenLeftBound && elementRightBound < screenRightBound && elementLeftBound < screenLeftBound));
 	}
 
-	function getAbsolutePosition(el) {
+	function getElementPosition(el) {
 	    var el2 = el;
 	    var curtop = 0;
 	    var curleft = 0;
