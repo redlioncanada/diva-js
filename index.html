@@ -42,26 +42,26 @@
 <div class="test02 test"><div>0,2</div></div>
 <div class="test12 test"><div>1,2</div></div>
 
-<script src="./release/diva.js"></script>
+<script src="./release/diva.min.js"></script>
 <script type="text/javascript">
-	diva.always('.test00', function() {
+	diva.always('.test00', {offset: '10%'}, function() {
 		console.log('.test00 scrolled into view!');
-	})
+	});
 	diva.always('.test01', function() {
 		console.log('.test01 scrolled into view!');
-	})
+	});
 	diva.always('.test10', function() {
 		console.log('.test10 scrolled into view!');
-	})
+	});
 	diva.always('.test11', function() {
 		console.log('.test11 scrolled into view!');
-	})
+	});
 	diva.always('.test02', function() {
 		console.log('.test02 scrolled into view!');
-	})
+	});
 	diva.always('.test12', function() {
 		console.log('.test12 scrolled into view!');
-	})
+	});
 </script>
 </body>
 </html>

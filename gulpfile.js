@@ -8,7 +8,7 @@ gulp.task('transpile', function() {
 		.pipe(jshint())
 		.pipe(jshint.reporter('default'))
 		.pipe(gulp.dest('build'))
-		.pipe(uglify({mangle:false}))
+		.pipe(uglify())
 		.pipe(rename({'suffix':'.min'}))
 		.pipe(gulp.dest('build'));
 });
@@ -18,7 +18,7 @@ gulp.task('release', function() {
 		.pipe(jshint())
 		.pipe(jshint.reporter('default'))
 		.pipe(gulp.dest('release'))
-		.pipe(uglify({mangle:false}))
+		.pipe(uglify())
 		.pipe(rename({'suffix':'.min'}))
 		.pipe(gulp.dest('release'));
 });
