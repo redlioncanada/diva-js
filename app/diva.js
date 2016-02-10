@@ -1,4 +1,4 @@
-var diva = (function() {
+module.exports = (function() {
 	var evts = [];
 	var self = this;
 	window.onscroll = onScroll;
