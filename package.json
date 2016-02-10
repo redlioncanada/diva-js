@@ -1,8 +1,8 @@
 {
-  "name": "diva",
+  "name": "diva-js",
   "version": "1.0.4",
   "description": "Lets you know when elements are in view.",
-  "main": "diva.js",
+  "main": "release/diva.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
